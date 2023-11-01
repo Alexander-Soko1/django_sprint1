@@ -2,24 +2,8 @@
   {% block title %}
   {{ post.location }}{{ post.date }}
   {% endblock %}
-
   {% block content %}
-      <div class="container py-5">
-        <article>
-          <ul>
-            <li>
-              Место: {{ post.location }}              
-            </li>
-            <li>
-              Дата: {{ post.date }}
-            </li>
-            <li>
-              <a>Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
-            </li>
-          </ul>         
-          <p>
-            {{ post.text }}
-          </p>          
-        </article>                
-      </div>
+  {% include "includes/article1.html" %}
+  {{ post.text }}
+  {% include "includes/article2.html" %}
   {% endblock content %}

@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+from django.http import Http404
+
+
 posts = [
     {
         'id': 0,
@@ -43,22 +46,20 @@ posts = [
     },
 ]
 
-# Create your views here.
-
 
 def index(request):
-    template = 'blog/index.html'
     context = {'posts_list': reversed(posts)}
-    return render(request, template, context)
+    return render(request, 'blog/index.html', context)
 
 
 def post_detail(request, id):
-    template = 'blog/detail.html'
-    context = {'post': posts[id]}
-    return render(request, template, context)
+    try:
+        context = {'post': posts[id]}
+    except Exception:
+        raise Http404("Page does not exist")
+    return render(request, 'blog/detail.html', context)
 
 
 def category_posts(request, category_slug):
-    template = 'blog/category.html'
     context = {'category_posts': category_slug}
-    return render(request, template, context)
+    return render(request, 'blog/category.html', context)
