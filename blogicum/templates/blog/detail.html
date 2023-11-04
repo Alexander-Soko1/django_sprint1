@@ -1,9 +1,13 @@
-{% extends "base.html" %}
+{% extends "blog/index.html" %}
   {% block title %}
   {{ post.location }}{{ post.date }}
   {% endblock %}
   {% block content %}
-  {% include "includes/article1.html" %}
-  {{ post.text }}
-  {% include "includes/article2.html" %}
+  {% block content2 %}{% endblock content2 %}
+            {% block content3 %}
+            {{ post.text }}
+            </p>          
+        </article>     
+        {% endblock content3 %}     
+  <div/>   
   {% endblock content %}
