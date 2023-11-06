@@ -1,13 +1,8 @@
-{% extends "blog/index.html" %}
+{% extends "base.html" %}
   {% block title %}
   {{ post.location }}{{ post.date }}
   {% endblock %}
   {% block content %}
-  {% block content2 %}{% endblock content2 %}
-            {% block content3 %}
-            {{ post.text }}
-            </p>          
-        </article>     
-        {% endblock content3 %}     
-  <div/>   
+  {% include "includes/article1.html" with 
+  localcontent="{{ post.text }}" %}
   {% endblock content %}

@@ -6,29 +6,13 @@
   <div class="container py-5">
     <h1>Лента записей</h1>
     {% for post in posts_list %}
-    {% block content2 %}
     <hr>
-      <article>
-        <ul>
-          <li>
-            Место: {{ post.location }}
-          </li>
-            <li>
-              Дата: {{ post.date }}
-            </li>
-          <li>
-            <a>Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
-          </li>
-        </ul>          
-        <p>
-        {% endblock content2 %}
-        {% block content3 %}
-        {{ post.text|truncatewords:10 }}
-        </p>
-        <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
-      </article>
+    {% include "includes/article1.html" with 
+    localcontent = 
+    {{ post.text|truncatewords:10 }}
+  </p>
+  <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a> %}
     <hr>
-    {% endblock content3 %}
     {% endfor %}
   <div/>
 {% endblock content %}

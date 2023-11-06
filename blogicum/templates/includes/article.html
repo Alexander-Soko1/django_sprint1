@@ -1,0 +1,19 @@
+{% load static %}
+<div class="container py-5">
+    <article>
+      <ul>
+        <li>
+          Место: {{ post.location }}              
+        </li>
+        <li>
+          Дата: {{ post.date }}
+        </li>
+        <li>
+          <a>Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
+        </li>
+      </ul>         
+      <p>
+        {{ localcontent }}
+          </p>  
+    </article>                
+  </div>
