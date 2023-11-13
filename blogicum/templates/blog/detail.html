@@ -3,6 +3,5 @@
   {{ post.location }}{{ post.date }}
   {% endblock %}
   {% block content %}
-  {% include "includes/article1.html" with 
-  localcontent="{{ post.text }}" %}
+  {% include "includes/article.html" with detail=True %}
   {% endblock content %}
