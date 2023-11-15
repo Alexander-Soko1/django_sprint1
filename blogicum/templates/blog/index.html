@@ -3,7 +3,7 @@
   Лента записей
 {% endblock title %}
 {% block content %}
-  <div class="container py-5">
-    <hr>
-    {% include "includes/article.html" with index=True %}
+{% for post in posts_list %}
+  {% include "includes/article.html" with index=True %}
+{% endfor %}
 {% endblock content %}

@@ -2,7 +2,7 @@
 <div class="container py-5">
   {% if index %}
   <h1>Лента записей</h1>
-  {% for post in posts_list %}
+  {% endif %}
     <article>
       <ul>
         <li>
@@ -17,13 +17,13 @@
       </ul>
       <p>
         {% if detail %}
-        {{ post.text }}
+          {{ post.text }}
         {% endif %}
-        {{ post.text|truncatewords:10 }}
+        {% if index %}
+          {{ post.text|truncatewords:10 }}
           </p>
           <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
         <hr>
-        {% endfor %}
         {% endif %}
     </article>
   </div>
